@@ -1,0 +1,21 @@
+---
+permalink: /en/index.html
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+
+      {% for event in collections.events_en | reverse %}
+        {% if loop.first %}<ul>{% endif %}
+        <li>
+            <p>{{ event.data.startDate | date('Y-M-DD', languageCode) }}</p>
+            <h2>{{ event.data.title }}</h2>
+        </li>
+        {% if loop.last %}</ul>{% endif %}
+      {% endfor %}
+
+    </div>
+  </main>
+
+{% endblock %}

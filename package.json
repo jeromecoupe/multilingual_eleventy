@@ -1,0 +1,16 @@
+{
+  "name": "multilingual_eleventy",
+  "version": "1.0.0",
+  "description": "multilingiual test with eleventy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jérôme Coupé",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.8.2",
+    "eleventy": "^0.2.0",
+    "moment": "^2.24.0"
+  }
+}
