@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: "src/uploads"
+public_folder: "/uploads"
+collections:
+  - name: "blog_en" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog English" # Used in the UI
+    folder: "src/en/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "blog_fr" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog French" # Used in the UI
+    folder: "src/fr/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Titre", name: "title", widget: "string"}
+      - {label: "Date de publication", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}

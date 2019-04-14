@@ -22,8 +22,13 @@ module.exports = function(eleventyConfig) {
     return moment(date).format(format);
   });
 
+  // pass through
+  eleventyConfig.addPassthroughCopy("./admin");
+  eleventyConfig.addPassthroughCopy("./uploads");
+
   // Base config
   return {
+    passthroughFileCopy: true,
     dir: {
       input: "src",
       output: "dist"
