@@ -1,25 +1,13 @@
 ---
-permalink: "/{{ locale }}/index.html"
-translationKey: "homepage"
+permalink: "/{{ locale }}/blog/index.html"
+translationKey: "blogpage"
 ---
 
 {% extends "layouts/base.njk" %}
 
 {% block content %}
 
-  <h2>Events</h2>
-
-  {% set events = collections["events_" + locale] %}
-  {% for event in events | reverse %}
-    {% if loop.first %}<ul>{% endif %}
-    <li>
-        <p>{{ event.data.startDate | date('DD MMMM Y', locale) }}</p>
-        <h2>{{ event.data.title }}</h2>
-    </li>
-    {% if loop.last %}</ul>{% endif %}
-  {% endfor %}
-
-  <h2>Posts</h2>
+  <h2>Archive du blog</h2>
   {% for post in collections.posts_fr %}
     {% if loop.first %}<ul>{% endif %}
       <li>

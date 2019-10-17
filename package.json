@@ -2,14 +2,14 @@
   "name": "multilingual_eleventy",
   "version": "1.0.0",
   "description": "multilingiual test with eleventy",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeromecoupe/multilingual_eleventy"
   },
   "author": "Jérôme Coupé",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^0.8.2",
+    "@11ty/eleventy": "^0.9.0",
     "moment": "^2.24.0"
   }
 }
