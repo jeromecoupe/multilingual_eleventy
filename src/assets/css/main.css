@@ -1,0 +1,16 @@
+:root {
+  --color-white: #ffffff;
+  --color-gray-100: #0e0e0e;
+
+  --color-text: var(--color-gray-100);
+  --color-body: var(--color-white);
+}
+
+html {
+  font: 400 100%/1.5 "Roboto", "Helevtica Neue", system-ui, sans-serif;
+}
+
+body {
+  color: var(--color-text);
+  background: var(--color-body);
+}

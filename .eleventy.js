@@ -20,6 +20,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("dateIso", require("./src/_11ty/filters/dateIso.js"));
   eleventyConfig.addFilter("dateYear", require("./src/_11ty/filters/dateYear.js"));
 
+  // COPY
+  // -------------------------------
+  eleventyConfig.addPassthroughCopy("./src/assets");
+
   // CONFIG
   // -------------------------------
   return {
