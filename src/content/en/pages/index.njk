@@ -5,30 +5,36 @@ translationKey: "homepage"
 
 {% extends "layouts/base.njk" %}
 
+{% set metaTitle= "Home" %}
+
 {% block content %}
 
-  {% set events = collections["events_" + locale] %}
+  <h2>Events</h2>
+  {% set events = collections["events_" ~ locale] %}
   {% for event in events | reverse %}
     {% if loop.first %}<ul>{% endif %}
-    <li>
-        <p>{{ event.data.startDate | date('DD MMMM Y', locale) }}</p>
-        <h2>{{ event.data.title }}</h2>
-    </li>
+      <li>
+        
+        <article>
+          <p><time datetime="{{ event.data.startDate | dateIso }}">{{ event.data.startDate | dateFull(locale) }}</time></p>
+          <h2>{{ event.data.title }}</h2>
+        </article>
+
+      </li>
     {% if loop.last %}</ul>{% endif %}
   {% endfor %}
 
-  <h2>Posts</h2>
+  <h2>Blog</h2>
   {% for post in collections.posts_en %}
     {% if loop.first %}<ul>{% endif %}
       <li>
 
         <article>
-          <p><time datetime="{{ post.date | date('Y-MM-DD') }}">{{ post.date | date("DD MMMM[,] Y", locale) }}</time></p>
+          <p><time datetime="{{ post.date | dateIso }}">{{ post.date | dateFull(locale) }}</time></p>
           <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
         </article>
 
       </li>
-
     {% if loop.last %}</ul>{% endif %}
   {% endfor %}
 

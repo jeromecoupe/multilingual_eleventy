@@ -1,22 +1,27 @@
-{% for lgg in site.languages %}
+{% for lgg in languages %}
   {% if loop.first %}<ul class="c-lggnav">{% endif %}
 
   {# set translatedUrl to the homepage of that language by default #}
-  {% set translatedUrl = "/" + lgg.code + "/" %}
+  {% set translatedUrl %}/{{lgg.locale}}/{% endset %}
 
   {# set current language class #}
-  {% set activeClass = "is-active" if lgg.code == locale else "" %}
+  {% set activeClass = "" %}
+  {% set activeAria = "" %}
+  {% if lgg.code == locale %}
+    {% set activeClass = "is-active" %}
+    {% set activeAria = 'aria-current="page"' | safe %}
+  {% endif %}
 
   {# loop through all the content of the site #}
   {% for item in collections.all %}
     {# check matches #}
-    {% if item.data.translationKey == translationKey and item.data.locale == lgg.code %}
+    {% if item.data.translationKey == translationKey and item.data.locale == lgg.locale %}
       {% set translatedUrl = item.url %}
     {% endif %}
   {% endfor%}
 
   <li class="c-lggnav__item">
-    <a class="c-lggnav__link  {{ activeClass }}" href="{{ translatedUrl }}">{{ lgg.label }}</a>
+    <a class="c-lggnav__link  {{ activeClass }}" {{ activeAria }} href="{{ translatedUrl }}">{{ lgg.label }}</a>
   </li>
 
   {% if loop.last %}</ul>{% endif %}

@@ -1,15 +1,22 @@
 {
   "name": "multilingual_eleventy",
   "version": "1.0.0",
-  "description": "multilingiual test with eleventy",
+  "description": "multilingual test with eleventy",
   "repository": {
     "type": "git",
     "url": "https://github.com/jeromecoupe/multilingual_eleventy"
   },
   "author": "Jérôme Coupé",
   "license": "MIT",
+  "scripts": {
+    "clear": "rimraf './dist/'",
+    "dev": "npx eleventy --serve --quiet",
+    "build": "npm run clear & npx eleventy --quiet",
+    "postinstall": "npm run build"
+  },
   "devDependencies": {
-    "@11ty/eleventy": "^0.10.0",
-    "moment": "^2.24.0"
+    "@11ty/eleventy": "^2.0.0-canary.3",
+    "luxon": "^2.3.1",
+    "rimraf": "^3.0.2"
   }
 }

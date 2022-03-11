@@ -1,12 +1,8 @@
 module.exports = {
-  languages: [
-    {
-      label: "english",
-      code: "en"
-    },
-    {
-      label: "français",
-      code: "fr"
-    }
-  ]
-};
+  fr: {
+    title: "Mon site"
+  },
+  en: {
+    title: "My website"
+  }
+}

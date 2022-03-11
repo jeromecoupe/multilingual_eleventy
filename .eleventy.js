@@ -1,42 +1,29 @@
-const moment = require("moment");
-
 module.exports = function(eleventyConfig) {
   // COLLECTIONS
   // -------------------------------
 
-  // events EN
-  eleventyConfig.addCollection("events_en", function(collection) {
-    return collection.getFilteredByGlob("./src/en/events/*.md");
-  });
+  // EN
+  eleventyConfig.addCollection("events_en", require("./src/_11ty/collections/events_en.js"));
+  
+  eleventyConfig.addCollection("posts_en", require("./src/_11ty/collections/posts_en.js"));
 
-  // events FR
-  eleventyConfig.addCollection("events_fr", function(collection) {
-    return collection.getFilteredByGlob("./src/fr/events/*.md");
-  });
-
-  // posts EN
-  eleventyConfig.addCollection("posts_en", function(collection) {
-    return collection.getFilteredByGlob("./src/en/posts/*.md");
-  });
-
-  // posts FR
-  eleventyConfig.addCollection("posts_fr", function(collection) {
-    return collection.getFilteredByGlob("./src/fr/posts/*.md");
-  });
+  // FR
+  eleventyConfig.addCollection("events_fr", require("./src/_11ty/collections/events_fr.js"));
+  
+  eleventyConfig.addCollection("posts_fr", require("./src/_11ty/collections/posts_fr.js"));
 
   // FILTERS
   // -------------------------------
+  eleventyConfig.addFilter("dateFeed", require("./src/_11ty/filters/dateFeed.js"));
+  eleventyConfig.addFilter("dateFormat", require("./src/_11ty/filters/dateFormat.js"));
+  eleventyConfig.addFilter("dateFull", require("./src/_11ty/filters/dateFull.js"));
+  eleventyConfig.addFilter("dateIso", require("./src/_11ty/filters/dateIso.js"));
+  eleventyConfig.addFilter("dateYear", require("./src/_11ty/filters/dateYear.js"));
 
-  // date filter
-  eleventyConfig.addNunjucksFilter("date", function(date, format, locale) {
-    locale = locale ? locale : "en";
-    moment.locale(locale);
-    return moment(date).format(format);
-  });
-
-  // Base config
+  // CONFIG
+  // -------------------------------
   return {
-    passthroughFileCopy: true,
+    markdownTemplateEngine: "njk",
     dir: {
       input: "src",
       output: "dist"
