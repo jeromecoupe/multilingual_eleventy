@@ -7,7 +7,7 @@ Testing Eleventy multilingual capabilities following these two posts:
 
 ## Features
 
-- default locale (netlify.toml backed up by HTML file)
+- default locale (`netlify.toml`redirect backed up by HTML redirect)
 - localised collections
 - locales managed using directory data files
 - date filters taking locales into account
